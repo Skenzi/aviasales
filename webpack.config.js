@@ -10,11 +10,24 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
+  resolve: {
+    extensions: ['.js', '.jsx', '.tsx', '.ts'],
+  },
   module: {
     rules: [
       {
         test: /.tsx?$/,
-        use: 'ts-loader',
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
+            },
+          },
+          {
+            loader: 'ts-loader',
+          },
+        ],
       },
       {
         test: /.s?css$/,

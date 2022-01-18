@@ -3,6 +3,8 @@ env:
   es2021: true
 extends:
   - plugin:react/recommended
+  - plugin:@typescript-eslint/eslint-recommended
+  - plugin:@typescript-eslint/recommended
   - airbnb
 parser: '@typescript-eslint/parser'
 parserOptions:
@@ -13,4 +15,8 @@ parserOptions:
 plugins:
   - react
   - '@typescript-eslint'
-rules: {}
+rules:  {
+  'react/jsx-filename-extension': [2, { 'extensions': ['.js', '.jsx', '.ts', '.tsx'] }],
+  'import/extensions': 0,
+  'import/no-unresolved': 0
+}
