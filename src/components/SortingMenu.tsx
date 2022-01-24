@@ -1,6 +1,11 @@
 import React from 'react';
 
-function SortingMenu() {
+interface Props {
+  sortTickets: () => void,
+  tickets: Array<object>
+}
+
+function SortingMenu({ sortTickets, tickets }: Props) {
   return <div>12222</div>;
 }
 

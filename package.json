@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npx webpack",
-    "run": "npx webpack dev",
+    "build": "webpack",
+    "start": "webpack serve",
     "lint": "npx eslint ."
   },
   "repository": {
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Skenzi/aviasales#readme",
   "dependencies": {
+    "axios": "^0.25.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },

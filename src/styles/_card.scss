@@ -1,0 +1,31 @@
+.card {
+    width: 502px;
+    padding: 20px;
+    background-color: var(--white);
+    &-header {
+        display: flex;
+        justify-content: space-between;
+        &-price {
+            
+        }
+        &-img {
+            
+        }
+    }
+    &-body {
+        display: flex;
+        margin-top: 20px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        &-row {
+            display: flex;
+            flex-basis: 100%;
+            &:nth-child(1n+2) {
+                margin-top: 10px;
+            }
+        }
+        & .row-item {
+            width: 100%;
+        }
+    }
+}

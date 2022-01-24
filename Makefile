@@ -1,6 +1,8 @@
 build:
 	npm run build
-run:
-	npm run dev
+start:
+	npm run start
 lint:
 	npm run lint
+install:
+	npm install
