@@ -1,10 +1,5 @@
-import React from 'react';
-import { Ticket } from '../types/types';
-
-interface Props {
-  sortTickets: () => void,
-  currTickets: Array<Ticket>,
-}
+import React, { useState } from 'react';
+import { Props } from '../types/types';
 
 const getTime = (ms: number) => {
   const date = new Date(ms);
@@ -14,11 +9,12 @@ const getTime = (ms: number) => {
 };
 
 function ListTickets({
-  sortTickets, currTickets,
+  sortTickets, sortedTickets, countCurrTickets,
 }: Props) {
+  const currTickets = sortedTickets?.slice(0, countCurrTickets);
   return (
     <div>
-      {currTickets.map((ticket) => (
+      {currTickets?.map((ticket) => (
         <div key={ticket.id} className="card">
           <div className="card-header">
             <div className="card-header-price">
