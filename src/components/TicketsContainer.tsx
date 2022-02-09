@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ListTickets from './ListTickets';
 import SortedTabs from './SortedTabs';
-import { Props } from '../types/types';
+import { Props, PropsTicketsContainer } from '../types/types';
 
 interface ButtonProps {
     setCountCurrTickets: Function,
@@ -17,16 +17,15 @@ function ButtonAddTickets({ setCountCurrTickets, countCurrTickets }: ButtonProps
 }
 
 function TicketsContainer({
-  sortTickets, sortedTickets,
-}: Props) {
+  tickets = [], currentTickets = [], setCurrentTickets,
+}: PropsTicketsContainer) {
   const [countCurrTickets, setCountCurrTickets] = useState<number>(5);
   return (
     <div>
-      <SortedTabs />
+      <SortedTabs setCurrentTickets={setCurrentTickets} currentTickets={currentTickets} />
       <ListTickets
         countCurrTickets={countCurrTickets}
-        sortTickets={sortTickets}
-        sortedTickets={sortedTickets}
+        currentTickets={currentTickets}
       />
       <ButtonAddTickets
         countCurrTickets={countCurrTickets}
