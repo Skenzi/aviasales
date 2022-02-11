@@ -39,3 +39,14 @@ export const sortTicketsTravelTime = (tickets: Array<Ticket|any>): Array<Ticket>
   const right = sortTicketsTravelTime(much);
   return [...left, middleTicket, ...right];
 };
+
+interface Test {
+  [key: string]: Function,
+  travelTimeSort: Function,
+  moneySort: Function,
+}
+
+export const mappingSort: Test = {
+  travelTimeSort: sortTicketsTravelTime,
+  moneySort: sortTickets,
+};

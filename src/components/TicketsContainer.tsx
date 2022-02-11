@@ -17,12 +17,16 @@ function ButtonAddTickets({ setCountCurrTickets, countCurrTickets }: ButtonProps
 }
 
 function TicketsContainer({
-  tickets = [], currentTickets = [], setCurrentTickets,
+  tickets = [], currentTickets = [], setCurrentTickets, setCurrSort,
 }: PropsTicketsContainer) {
   const [countCurrTickets, setCountCurrTickets] = useState<number>(5);
   return (
     <div>
-      <SortedTabs setCurrentTickets={setCurrentTickets} currentTickets={currentTickets} />
+      <SortedTabs
+        setCurrSort={setCurrSort}
+        setCurrentTickets={setCurrentTickets}
+        currentTickets={currentTickets}
+      />
       <ListTickets
         countCurrTickets={countCurrTickets}
         currentTickets={currentTickets}

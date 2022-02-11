@@ -14,7 +14,7 @@ function ListTickets({
   const currTickets = currentTickets.slice(0, countCurrTickets);
   return (
     <div>
-      {currTickets?.map((ticket: Ticket) => (
+      {currTickets.map((ticket: Ticket) => (
         <div key={ticket.id} className="card">
           <div className="card-header">
             <div className="card-header-price">

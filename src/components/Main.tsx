@@ -8,6 +8,7 @@ import { sortTickets } from '../utils/utils';
 function Main() {
   const [tickets, setTickets] = useState<Array<Ticket>>([]);
   const [currentTickets, setCurrentTickets] = useState<Array<Ticket>>([]);
+  const [currSort, setCurrSort] = useState<string>('');
   const [error, setError] = useState<string>('');
   useEffect(() => {
     const responceSearch = axios.get('https://front-test.beta.aviasales.ru/search');
@@ -20,8 +21,8 @@ function Main() {
         setTickets(allTickets);
         setCurrentTickets(sortTickets(allTickets));
       })
-        .catch((err) => {
-          setError(err);
+        .catch(() => {
+          setError('Проблемы с сервером');
         });
     });
   }, []);
@@ -29,11 +30,13 @@ function Main() {
     <main>
       <FilteringMenu
         setCurrentTickets={setCurrentTickets}
+        currSort={currSort}
         tickets={tickets}
       />
       {error ? <div>{error}</div> : (
         <TicketsContainer
           tickets={tickets}
+          setCurrSort={setCurrSort}
           setCurrentTickets={setCurrentTickets}
           currentTickets={currentTickets}
         />

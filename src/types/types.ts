@@ -14,7 +14,6 @@ export interface Ticket {
 }
 
 export interface Props {
-    sortTickets?: (arg1: Array<Ticket>) => Array<Ticket>,
     tickets?: Array<Ticket>,
     setCountCurrTickets?: Function,
     countCurrTickets?: number
@@ -31,9 +30,17 @@ export interface PropsTicketsContainer {
     tickets: Array<Ticket>,
     currentTickets: Array<Ticket>,
     setCurrentTickets: Function,
+    setCurrSort: Function,
+}
+
+export interface PropsFilteringMenu {
+    currSort: string,
+    tickets: Array<Ticket>,
+    setCurrentTickets: Function,
 }
 
 export interface PropsSortTabs {
     currentTickets: Array<Ticket>,
+    setCurrSort: Function,
     setCurrentTickets: Function,
 }
