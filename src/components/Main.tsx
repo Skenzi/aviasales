@@ -8,7 +8,7 @@ import { sortTickets } from '../utils/utils';
 function Main() {
   const [tickets, setTickets] = useState<Array<Ticket>>([]);
   const [currentTickets, setCurrentTickets] = useState<Array<Ticket>>([]);
-  const [currSort, setCurrSort] = useState<string>('');
+  const [currSort, setCurrSort] = useState<string>('moneySort');
   const [error, setError] = useState<string>('');
   useEffect(() => {
     const responceSearch = axios.get('https://front-test.beta.aviasales.ru/search');
