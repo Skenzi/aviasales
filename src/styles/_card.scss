@@ -1,12 +1,16 @@
 .card {
     width: 502px;
+    margin-top: 20px;
     padding: 20px;
     background-color: var(--white);
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
     &-header {
         display: flex;
         justify-content: space-between;
         &-price {
-            
+            font-size: 24px;
+            color: #2196F3;
         }
         &-img {
             

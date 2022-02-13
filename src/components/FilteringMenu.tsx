@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { PropsFilteringMenu, Ticket } from '../types/types';
+import { PropsFilteringMenu, PropsTicket } from '../types/types';
 import { mappingSort } from '../utils/utils';
 
 const filterTickets = (
-  tickets: Array<Ticket>,
+  tickets: Array<PropsTicket>,
   currSort: string,
   setCurrentTickets: Function,
   options: Array<string>,
@@ -42,35 +42,35 @@ function FilteringMenu({ setCurrentTickets, tickets, currSort }: PropsFilteringM
     filterTickets(tickets, currSort, setCurrentTickets, options);
   }, [options]);
   return (
-    <div className="side-bar">
+    <div className="filter-menu">
       <h2>Количество пересадок</h2>
       <form>
         <div role="button" tabIndex={0} onKeyDown={onClickOptions(options, setOptions)} onClick={onClickOptions(options, setOptions)}>
-          <div className="side-bar-item">
+          <div className="filter-menu__item">
             <label htmlFor="all">
               <input id="all" type="checkbox" data-stops="all" />
               Все
             </label>
           </div>
-          <div className="side-bar-item">
+          <div className="filter-menu__item">
             <label htmlFor="without">
               <input id="without" type="checkbox" data-stops="0" />
               Без пересадок
             </label>
           </div>
-          <div className="side-bar-item">
+          <div className="filter-menu__item">
             <label htmlFor="oneStop">
               <input id="oneStop" type="checkbox" data-stops="1" />
               1 пересадка
             </label>
           </div>
-          <div className="side-bar-item">
+          <div className="filter-menu__item">
             <label htmlFor="twoStop">
               <input id="twoStop" type="checkbox" data-stops="2" />
               2 пересадки
             </label>
           </div>
-          <div className="side-bar-item">
+          <div className="filter-menu__item">
             <label htmlFor="threeStop">
               <input id="threeStop" type="checkbox" data-stops="3" />
               3 пересадки

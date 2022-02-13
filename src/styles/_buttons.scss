@@ -1,0 +1,24 @@
+.button {
+    padding: 15px;
+    &-add-tickets {
+        width: 100%;
+        margin-top: 20px;
+        background-color: #2196F3;
+        color: var(--white);
+        border-radius: 5px;
+    }
+    &-tab {
+        flex: 1;
+        background-color: var(--white);
+        &.active {
+            background-color: #2196F3;
+            color: var(--white);
+        }
+        &:first-child {
+            border-radius: 5px 0 0 5px;
+        }
+        &:last-child {
+            border-radius: 0 5px 5px 0;
+        }
+    }
+}

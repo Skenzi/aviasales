@@ -6,7 +6,7 @@ export interface TicketSegment {
     destination: string
 }
 
-export interface Ticket {
+export interface PropsTicket {
     price: number,
     id: number,
     carrier: string,
@@ -14,10 +14,10 @@ export interface Ticket {
 }
 
 export interface Props {
-    tickets?: Array<Ticket>,
+    tickets?: Array<PropsTicket>,
     setCountCurrTickets?: Function,
     countCurrTickets?: number
-    currentTickets?: Array<Ticket>,
+    currentTickets?: Array<PropsTicket>,
     setCurrentTickets?: Function,
 }
 
@@ -27,20 +27,20 @@ export interface ButtonProps {
 }
 
 export interface PropsTicketsContainer {
-    tickets: Array<Ticket>,
-    currentTickets: Array<Ticket>,
+    tickets: Array<PropsTicket>,
+    currentTickets: Array<PropsTicket>,
     setCurrentTickets: Function,
     setCurrSort: Function,
 }
 
 export interface PropsFilteringMenu {
     currSort: string,
-    tickets: Array<Ticket>,
+    tickets: Array<PropsTicket>,
     setCurrentTickets: Function,
 }
 
 export interface PropsSortTabs {
-    currentTickets: Array<Ticket>,
+    currentTickets: Array<PropsTicket>,
     setCurrSort: Function,
     setCurrentTickets: Function,
 }

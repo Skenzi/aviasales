@@ -1,6 +1,6 @@
-import { Ticket } from '../types/types';
+import { PropsTicket } from '../types/types';
 
-export const sortTickets = (tickets: Array<Ticket|any>): Array<Ticket> => {
+export const sortTickets = (tickets: Array<PropsTicket|any>): Array<PropsTicket> => {
   if (tickets.length < 2) {
     return tickets;
   }
@@ -19,7 +19,7 @@ export const sortTickets = (tickets: Array<Ticket|any>): Array<Ticket> => {
   return [...left, middleValue, ...right];
 };
 
-export const sortTicketsTravelTime = (tickets: Array<Ticket|any>): Array<Ticket> => {
+export const sortTicketsTravelTime = (tickets: Array<PropsTicket|any>): Array<PropsTicket> => {
   if (tickets.length < 2) {
     return tickets;
   }

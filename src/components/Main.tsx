@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import FilteringMenu from './FilteringMenu';
-import { Ticket } from '../types/types';
+import { PropsTicket } from '../types/types';
 import TicketsContainer from './TicketsContainer';
 import { sortTickets } from '../utils/utils';
 
 function Main() {
-  const [tickets, setTickets] = useState<Array<Ticket>>([]);
-  const [currentTickets, setCurrentTickets] = useState<Array<Ticket>>([]);
+  const [tickets, setTickets] = useState<Array<PropsTicket>>([]);
+  const [currentTickets, setCurrentTickets] = useState<Array<PropsTicket>>([]);
   const [currSort, setCurrSort] = useState<string>('moneySort');
   const [error, setError] = useState<string>('');
   useEffect(() => {
@@ -27,7 +27,7 @@ function Main() {
     });
   }, []);
   return (
-    <main>
+    <main className="main">
       <FilteringMenu
         setCurrentTickets={setCurrentTickets}
         currSort={currSort}

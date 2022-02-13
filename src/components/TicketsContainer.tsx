@@ -13,7 +13,7 @@ function ButtonAddTickets({ setCountCurrTickets, countCurrTickets }: ButtonProps
     const newCount = countCurrTickets + 5;
     setCountCurrTickets(newCount);
   };
-  return <button type="button" onClick={handleClick} className="button">Посмотреть еще 5 билетов</button>;
+  return <button type="button" onClick={handleClick} className="button button-add-tickets">Посмотреть еще 5 билетов</button>;
 }
 
 function TicketsContainer({
@@ -21,7 +21,7 @@ function TicketsContainer({
 }: PropsTicketsContainer) {
   const [countCurrTickets, setCountCurrTickets] = useState<number>(5);
   return (
-    <div>
+    <div className="tickets-container">
       <SortedTabs
         setCurrSort={setCurrSort}
         setCurrentTickets={setCurrentTickets}
