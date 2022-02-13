@@ -43,7 +43,7 @@ function FilteringMenu({ setCurrentTickets, tickets, currSort }: PropsFilteringM
   }, [options]);
   return (
     <div className="filter-menu">
-      <h2>Количество пересадок</h2>
+      <h2 className="filter-menu__header">Количество пересадок</h2>
       <form>
         <div role="button" tabIndex={0} onKeyDown={onClickOptions(options, setOptions)} onClick={onClickOptions(options, setOptions)}>
           <div className="filter-menu__item">

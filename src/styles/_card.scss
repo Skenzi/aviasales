@@ -21,7 +21,7 @@
         margin-top: 20px;
         flex-wrap: wrap;
         justify-content: space-between;
-        &-row {
+        &__row {
             display: flex;
             flex-basis: 100%;
             &:nth-child(1n+2) {
@@ -30,6 +30,13 @@
         }
         & .row-item {
             width: 100%;
+            &__header {
+                font-size: 12px;
+                color: #A0B0B9;
+            }
+            &__body {
+                font-size: 14px;
+            }
         }
     }
 }

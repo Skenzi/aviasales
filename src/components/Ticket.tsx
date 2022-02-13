@@ -21,23 +21,23 @@ function Ticket({ ticket }: { ticket: PropsTicket}) {
       </div>
       <div className="card-body">
         {ticket.segments.map((segment, ind) => {
+          const durationMs = segment.duration * 60000;
           const travelHours = Math.ceil(segment.duration / 60);
           const travelMinutes = segment.duration % 60;
-          const durationMs = segment.duration * 60000;
           const departureMs = Date.parse(segment.date);
           const arrivalTime = getTime(departureMs + durationMs);
           const departureTime = getTime(departureMs);
           return (
-            <div key={ind} className="card-body-row">
+            <div key={ind} className="card-body__row">
               <div className="row-item">
-                <div className="row-item-header">
+                <div className="row-item__header">
                   {segment.origin}
                   {' '}
                   -
                   {' '}
                   {segment.destination}
                 </div>
-                <div className="row-item-body">
+                <div className="row-item__body">
                   {departureTime}
                   {' '}
                   -
@@ -46,8 +46,8 @@ function Ticket({ ticket }: { ticket: PropsTicket}) {
                 </div>
               </div>
               <div className="row-item">
-                <div className="row-item-header">В пути</div>
-                <div className="row-item-body">
+                <div className="row-item__header">В пути</div>
+                <div className="row-item__body">
                   {travelHours}
                   ч
                   {' '}
@@ -56,8 +56,8 @@ function Ticket({ ticket }: { ticket: PropsTicket}) {
                 </div>
               </div>
               <div className="row-item">
-                <div className="row-item-header">{`${segment.stops.length} пересадок`}</div>
-                <div className="row-item-body">{!segment.stops.length ? '-' : segment.stops.reduce((acc, stop) => (!acc ? stop : `${acc}, ${stop}`), '')}</div>
+                <div className="row-item__header">{`${segment.stops.length} пересадок`}</div>
+                <div className="row-item__body">{!segment.stops.length ? '-' : segment.stops.reduce((acc, stop) => (!acc ? stop : `${acc}, ${stop}`), '')}</div>
               </div>
             </div>
           );

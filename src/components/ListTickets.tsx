@@ -7,7 +7,7 @@ function ListTickets({
 }: Props) {
   const currTickets = currentTickets.slice(0, countCurrTickets);
   return (
-    <div>
+    <div className="list-tickets">
       {currTickets.map((ticket: PropsTicket) => <Ticket ticket={ticket} />)}
     </div>
   );

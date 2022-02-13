@@ -1,6 +1,12 @@
 :root {
     --main-color: #fff;
+    --second-color: #2196F3;
+    --dark-grey: #4A4A4A;
     --white: #fff;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 body, h1, h2, h3, h4, p {
@@ -9,7 +15,8 @@ body, h1, h2, h3, h4, p {
 }
 
 body {
-    background-color: #E5E5E5
+    background-color: #E5E5E5;
+    color: #4A4A4A;
 }
 
 button {
