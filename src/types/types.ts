@@ -31,6 +31,13 @@ export interface PropsTicketsContainer {
     currentTickets: Array<PropsTicket>,
     setCurrentTickets: Function,
     setCurrSort: Function,
+    statusTickets: string,
+}
+
+export interface PropsListTickets {
+    statusTickets: string,
+    countCurrTickets?: number
+    currentTickets?: Array<PropsTicket>,
 }
 
 export interface PropsFilteringMenu {

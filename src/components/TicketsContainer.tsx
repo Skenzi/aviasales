@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ListTickets from './ListTickets';
 import SortedTabs from './SortedTabs';
 import { Props, PropsTicketsContainer } from '../types/types';
@@ -17,9 +17,12 @@ function ButtonAddTickets({ setCountCurrTickets, countCurrTickets }: ButtonProps
 }
 
 function TicketsContainer({
-  tickets = [], currentTickets = [], setCurrentTickets, setCurrSort,
+  tickets = [], statusTickets, currentTickets = [], setCurrentTickets, setCurrSort,
 }: PropsTicketsContainer) {
   const [countCurrTickets, setCountCurrTickets] = useState<number>(5);
+  useEffect(() => {
+    setCountCurrTickets(5);
+  }, [currentTickets]);
   return (
     <div className="tickets-container">
       <SortedTabs
@@ -30,6 +33,7 @@ function TicketsContainer({
       <ListTickets
         countCurrTickets={countCurrTickets}
         currentTickets={currentTickets}
+        statusTickets={statusTickets}
       />
       <ButtonAddTickets
         countCurrTickets={countCurrTickets}

@@ -1,0 +1,40 @@
+.checkmark {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 27px;
+    top: 12px;
+    width: 8px;
+    height: 14px;
+    border: 1px solid var(--second-color);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+.checkbox {
+    &-fake {
+        display: flex;
+        position: relative;
+        align-items: center;
+        &::before {
+            content: '';
+            display: block;
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            border: 1px solid #9ABBCE;
+            border-radius: 2px;
+        }
+    }
+    &-real {
+        position: absolute;
+        display: none;
+        &:checked {
+            & + .checkbox-fake .checkmark {
+                display: block;
+            }
+            & + .checkbox-fake::before {
+                border-color: var(--second-color);
+            }
+        }
+    }
+}

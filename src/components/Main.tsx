@@ -10,9 +10,12 @@ function Main() {
   const [currentTickets, setCurrentTickets] = useState<Array<PropsTicket>>([]);
   const [currSort, setCurrSort] = useState<string>('moneySort');
   const [error, setError] = useState<string>('');
+  const [statusTickets, setStatusTickets] = useState('waiting');
+  console.log(statusTickets, 1);
   useEffect(() => {
     const responceSearch = axios.get('https://front-test.beta.aviasales.ru/search');
     responceSearch.then(({ data }) => {
+      console.log(data);
       const responceTickets = axios.get(`https://front-test.beta.aviasales.ru/tickets?searchId=${data.searchId}`);
       responceTickets.then((dataTickets) => {
         const allTickets = dataTickets.data.tickets.map(
@@ -20,12 +23,16 @@ function Main() {
         );
         setTickets(allTickets);
         setCurrentTickets(sortTickets(allTickets));
+        setStatusTickets('loaded');
       })
         .catch(() => {
           setError('Проблемы с сервером');
         });
+    }).catch(() => {
+      setError('Проблемы с сетью');
     });
   }, []);
+  console.log(statusTickets, 2);
   return (
     <main className="main">
       <FilteringMenu
@@ -36,6 +43,7 @@ function Main() {
       {error ? <div>{error}</div> : (
         <TicketsContainer
           tickets={tickets}
+          statusTickets={statusTickets}
           setCurrSort={setCurrSort}
           setCurrentTickets={setCurrentTickets}
           currentTickets={currentTickets}

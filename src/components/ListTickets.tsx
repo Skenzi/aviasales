@@ -1,14 +1,14 @@
 import React from 'react';
 import Ticket from './Ticket';
-import { Props, PropsTicket } from '../types/types';
+import { PropsListTickets, PropsTicket } from '../types/types';
 
 function ListTickets({
-  currentTickets = [], countCurrTickets,
-}: Props) {
+  currentTickets = [], countCurrTickets, statusTickets,
+}: PropsListTickets) {
   const currTickets = currentTickets.slice(0, countCurrTickets);
   return (
     <div className="list-tickets">
-      {currTickets.map((ticket: PropsTicket) => <Ticket ticket={ticket} />)}
+      {statusTickets === 'waiting' ? <div>Идет загрузка</div> : currTickets.map((ticket: PropsTicket) => <Ticket ticket={ticket} />)}
     </div>
   );
 }

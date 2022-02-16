@@ -47,33 +47,38 @@ function FilteringMenu({ setCurrentTickets, tickets, currSort }: PropsFilteringM
       <form>
         <div role="button" tabIndex={0} onKeyDown={onClickOptions(options, setOptions)} onClick={onClickOptions(options, setOptions)}>
           <div className="filter-menu__item">
-            <label htmlFor="all">
-              <input id="all" type="checkbox" data-stops="all" />
+            <input id="all" type="checkbox" className="checkbox-real" data-stops="all" />
+            <label htmlFor="all" className="checkbox-fake">
               Все
+              <div className="checkmark" />
             </label>
           </div>
           <div className="filter-menu__item">
-            <label htmlFor="without">
-              <input id="without" type="checkbox" data-stops="0" />
+            <input id="without" type="checkbox" className="checkbox-real" data-stops="0" />
+            <label htmlFor="without" className="checkbox-fake">
               Без пересадок
+              <div className="checkmark" />
             </label>
           </div>
           <div className="filter-menu__item">
-            <label htmlFor="oneStop">
-              <input id="oneStop" type="checkbox" data-stops="1" />
+            <input id="oneStop" type="checkbox" className="checkbox-real" data-stops="1" />
+            <label htmlFor="oneStop" className="checkbox-fake">
               1 пересадка
+              <div className="checkmark" />
             </label>
           </div>
           <div className="filter-menu__item">
-            <label htmlFor="twoStop">
-              <input id="twoStop" type="checkbox" data-stops="2" />
+            <input id="twoStop" type="checkbox" className="checkbox-real" data-stops="2" />
+            <label htmlFor="twoStop" className="checkbox-fake">
               2 пересадки
+              <div className="checkmark" />
             </label>
           </div>
           <div className="filter-menu__item">
-            <label htmlFor="threeStop">
-              <input id="threeStop" type="checkbox" data-stops="3" />
+            <input id="threeStop" type="checkbox" className="checkbox-real" data-stops="3" />
+            <label htmlFor="threeStop" className="checkbox-fake">
               3 пересадки
+              <div className="checkmark" />
             </label>
           </div>
         </div>
