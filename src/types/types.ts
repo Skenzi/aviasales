@@ -16,14 +16,15 @@ export interface PropsTicket {
 export interface Props {
     tickets?: Array<PropsTicket>,
     setCountCurrTickets?: Function,
-    countCurrTickets?: number
+    countCurrTickets?: number,
     currentTickets?: Array<PropsTicket>,
     setCurrentTickets?: Function,
 }
 
-export interface ButtonProps {
+export interface PropsButton {
     setCountCurrTickets: Function,
-    countCurrTickets: number
+    countCurrTickets: number,
+    countRestTickets?: number,
 }
 
 export interface PropsTicketsContainer {
@@ -36,8 +37,7 @@ export interface PropsTicketsContainer {
 
 export interface PropsListTickets {
     statusTickets: string,
-    countCurrTickets?: number
-    currentTickets?: Array<PropsTicket>,
+    visibleTickets: Array<PropsTicket>,
 }
 
 export interface PropsFilteringMenu {

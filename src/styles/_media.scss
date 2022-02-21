@@ -1,0 +1,25 @@
+@media (max-width: 769px) {
+    .main {
+        padding: 0 30px 50px 30px;
+    }
+}
+@media (max-width: 602px) {
+    .main {
+        flex-direction: column;
+    }
+}
+@media (max-width: 602px) {
+    .main > * {
+        flex: 1;
+    }
+    .filter-menu {
+        max-width: 100%;
+        margin: 0;
+    }
+}
+@media (max-width: 426px) {
+    .tabs {
+        margin-top: 20px;
+        flex-direction: column;
+    }
+}

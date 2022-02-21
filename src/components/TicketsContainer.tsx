@@ -1,19 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import ListTickets from './ListTickets';
 import SortedTabs from './SortedTabs';
-import { Props, PropsTicketsContainer } from '../types/types';
+import { PropsButton, PropsTicketsContainer } from '../types/types';
 
-interface ButtonProps {
-    setCountCurrTickets: Function,
-    countCurrTickets: number
-}
-
-function ButtonAddTickets({ setCountCurrTickets, countCurrTickets }: ButtonProps) {
+function ButtonAddTickets({
+  setCountCurrTickets,
+  countRestTickets,
+  countCurrTickets,
+}: PropsButton) {
   const handleClick: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement> = () => {
     const newCount = countCurrTickets + 5;
     setCountCurrTickets(newCount);
   };
-  return <button type="button" onClick={handleClick} className="button button-add-tickets">Посмотреть еще 5 билетов</button>;
+  return (
+    <button type="button" onClick={handleClick} className="button button-add-tickets">
+      Посмотреть еще
+      {' '}
+      {countRestTickets}
+      {' '}
+      билетов
+    </button>
+  );
 }
 
 function TicketsContainer({
@@ -23,6 +30,9 @@ function TicketsContainer({
   useEffect(() => {
     setCountCurrTickets(5);
   }, [currentTickets]);
+  const visibleTickets = currentTickets.slice(0, countCurrTickets);
+  const diff = currentTickets.length - visibleTickets.length;
+  const countRestTickets = diff >= 5 ? 5 : diff;
   return (
     <div className="tickets-container">
       <SortedTabs
@@ -31,14 +41,16 @@ function TicketsContainer({
         currentTickets={currentTickets}
       />
       <ListTickets
-        countCurrTickets={countCurrTickets}
-        currentTickets={currentTickets}
+        visibleTickets={visibleTickets}
         statusTickets={statusTickets}
       />
-      <ButtonAddTickets
-        countCurrTickets={countCurrTickets}
-        setCountCurrTickets={setCountCurrTickets}
-      />
+      {diff ? (
+        <ButtonAddTickets
+          countRestTickets={countRestTickets}
+          countCurrTickets={countCurrTickets}
+          setCountCurrTickets={setCountCurrTickets}
+        />
+      ) : null}
     </div>
   );
 }
