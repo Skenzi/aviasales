@@ -1,6 +1,8 @@
+/* eslint no-unused-vars: "off" */
+
 import { PropsTicket } from '../types/types';
 
-export const sortTickets = (tickets: Array<PropsTicket|any>): Array<PropsTicket> => {
+export const sortTickets = (tickets: Array<PropsTicket>): Array<PropsTicket> => {
   if (tickets.length < 2) {
     return tickets;
   }
@@ -19,7 +21,7 @@ export const sortTickets = (tickets: Array<PropsTicket|any>): Array<PropsTicket>
   return [...left, middleValue, ...right];
 };
 
-export const sortTicketsTravelTime = (tickets: Array<PropsTicket|any>): Array<PropsTicket> => {
+export const sortTicketsTravelTime = (tickets: Array<PropsTicket>): Array<PropsTicket> => {
   if (tickets.length < 2) {
     return tickets;
   }
@@ -40,13 +42,13 @@ export const sortTicketsTravelTime = (tickets: Array<PropsTicket|any>): Array<Pr
   return [...left, middleTicket, ...right];
 };
 
-interface Test {
-  [key: string]: Function,
-  travelTimeSort: Function,
-  moneySort: Function,
+interface mappingSortProps {
+  [key: string]: (tickets: Array<PropsTicket>) => Array<PropsTicket>,
+  travelTimeSort: (tickets: Array<PropsTicket>) => Array<PropsTicket>,
+  moneySort: (tickets: Array<PropsTicket>) => Array<PropsTicket>,
 }
 
-export const mappingSort: Test = {
+export const mappingSort: mappingSortProps = {
   travelTimeSort: sortTicketsTravelTime,
   moneySort: sortTickets,
 };

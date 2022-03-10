@@ -1,3 +1,5 @@
+import React from 'react';
+
 export interface TicketSegment {
     origin: string,
     stops: Array<string>,
@@ -15,22 +17,22 @@ export interface PropsTicket {
 
 export interface Props {
     tickets?: Array<PropsTicket>,
-    setCountCurrTickets?: Function,
+    setCountCurrTickets?: React.Dispatch<React.SetStateAction<number>>,
     countCurrTickets?: number,
     currentTickets?: Array<PropsTicket>,
-    setCurrentTickets?: Function,
+    setCurrentTickets?: React.Dispatch<React.SetStateAction<PropsTicket[]>>,
 }
 
 export interface PropsButton {
-    setCountCurrTickets: Function,
+    setCountCurrTickets: React.Dispatch<React.SetStateAction<number>>,
     countCurrTickets: number,
     countRestTickets?: number,
 }
 
 export interface PropsTicketsContainer {
     currentTickets: Array<PropsTicket>,
-    setCurrentTickets: Function,
-    setCurrSort: Function,
+    setCurrentTickets: React.Dispatch<React.SetStateAction<PropsTicket[]>>,
+    setCurrSort: React.Dispatch<React.SetStateAction<string>>,
     statusTickets: string,
 }
 
@@ -42,11 +44,11 @@ export interface PropsListTickets {
 export interface PropsFilteringMenu {
     currSort: string,
     tickets: Array<PropsTicket>,
-    setCurrentTickets: Function,
+    setCurrentTickets: React.Dispatch<React.SetStateAction<PropsTicket[]>>,
 }
 
 export interface PropsSortTabs {
     currentTickets: Array<PropsTicket>,
-    setCurrSort: Function,
-    setCurrentTickets: Function,
+    setCurrSort: React.Dispatch<React.SetStateAction<string>>,
+    setCurrentTickets: React.Dispatch<React.SetStateAction<PropsTicket[]>>,
 }

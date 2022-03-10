@@ -2,7 +2,9 @@ import React from 'react';
 import { PropsSortTabs } from '../types/types';
 import { sortTickets, sortTicketsTravelTime } from '../utils/utils';
 
-const switchActiveTab = (setCurrSort: Function) => (ev: any) => {
+const switchActiveTab = (
+  setCurrSort: React.Dispatch<React.SetStateAction<string>>,
+) => (ev: any) => {
   const tabs = ev.currentTarget.querySelectorAll('[role="tab"]');
   tabs.forEach((tab: HTMLElement) => {
     tab.classList.remove('active');

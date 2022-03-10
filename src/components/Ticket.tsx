@@ -27,8 +27,9 @@ function Ticket({ ticket }: { ticket: PropsTicket}) {
           const departureMs = Date.parse(segment.date);
           const arrivalTime = getTime(departureMs + durationMs);
           const departureTime = getTime(departureMs);
+          const key = ind + 1;
           return (
-            <div key={ind} className="card-body__row">
+            <div key={key} className="card-body__row">
               <div className="row-item">
                 <div className="row-item__header">
                   {segment.origin}

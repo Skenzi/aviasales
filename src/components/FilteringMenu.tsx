@@ -5,7 +5,7 @@ import { mappingSort } from '../utils/utils';
 const filterTickets = (
   tickets: Array<PropsTicket>,
   currSort: string,
-  setCurrentTickets: Function,
+  setCurrentTickets: React.Dispatch<React.SetStateAction<PropsTicket[]>>,
   options: Array<string>,
 ) => {
   if (!currSort) {
@@ -23,7 +23,10 @@ const filterTickets = (
   }
 };
 
-const onClickOptions = (options: Array<string>, setOptions: Function) => (ev: any) => {
+const onClickOptions = (
+  options: Array<string>,
+  setOptions: React.Dispatch<React.SetStateAction<string[]>>,
+) => (ev: any) => {
   const { checked } = ev.target;
   if (checked && (ev.target.dataset.stops === 'all' || options.includes('all'))) {
     setOptions(['all']);
