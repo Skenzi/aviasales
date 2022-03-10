@@ -78,7 +78,7 @@ function FilteringMenu({ setCurrentTickets, tickets, currSort }: PropsFilteringM
       <form>
         <div role="button" tabIndex={0} onKeyDown={onClickOptions(options, setOptions)} onClick={onClickOptions(options, setOptions)}>
           {items.map((item) => (
-            <div className="filter-menu__item">
+            <div key={item.id} className="filter-menu__item">
               <input id={item.id} type="checkbox" className="checkbox-real" data-stops={item.stops} />
               <label htmlFor={item.id} className="checkbox-fake">
                 {item.name}

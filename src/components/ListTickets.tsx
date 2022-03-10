@@ -7,7 +7,7 @@ function ListTickets({
 }: PropsListTickets) {
   return (
     <div className="list-tickets">
-      {statusTickets === 'waiting' ? <div>Идет загрузка</div> : visibleTickets.map((ticket: PropsTicket) => <Ticket ticket={ticket} />)}
+      {statusTickets === 'waiting' ? <div>Идет загрузка</div> : visibleTickets.map((ticket: PropsTicket) => <Ticket key={ticket.id} ticket={ticket} />)}
     </div>
   );
 }
