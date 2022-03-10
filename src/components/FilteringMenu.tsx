@@ -36,6 +36,34 @@ const onClickOptions = (options: Array<string>, setOptions: Function) => (ev: an
   }
 };
 
+const items = [
+  {
+    name: 'Все',
+    stops: 'all',
+    id: 'all',
+  },
+  {
+    name: 'Без пересадок',
+    stops: '0',
+    id: 'without',
+  },
+  {
+    name: '1 пересадка',
+    stops: '1',
+    id: 'oneStop',
+  },
+  {
+    name: '2 пересадки',
+    stops: '2',
+    id: 'twoStop',
+  },
+  {
+    name: '3 пересадки',
+    stops: '3',
+    id: 'threeStop',
+  },
+];
+
 function FilteringMenu({ setCurrentTickets, tickets, currSort }: PropsFilteringMenu) {
   const [options, setOptions] = useState<Array<string>>([]);
   useEffect(() => {
@@ -46,41 +74,15 @@ function FilteringMenu({ setCurrentTickets, tickets, currSort }: PropsFilteringM
       <h2 className="filter-menu__header">Количество пересадок</h2>
       <form>
         <div role="button" tabIndex={0} onKeyDown={onClickOptions(options, setOptions)} onClick={onClickOptions(options, setOptions)}>
-          <div className="filter-menu__item">
-            <input id="all" type="checkbox" className="checkbox-real" data-stops="all" />
-            <label htmlFor="all" className="checkbox-fake">
-              Все
-              <div className="checkmark" />
-            </label>
-          </div>
-          <div className="filter-menu__item">
-            <input id="without" type="checkbox" className="checkbox-real" data-stops="0" />
-            <label htmlFor="without" className="checkbox-fake">
-              Без пересадок
-              <div className="checkmark" />
-            </label>
-          </div>
-          <div className="filter-menu__item">
-            <input id="oneStop" type="checkbox" className="checkbox-real" data-stops="1" />
-            <label htmlFor="oneStop" className="checkbox-fake">
-              1 пересадка
-              <div className="checkmark" />
-            </label>
-          </div>
-          <div className="filter-menu__item">
-            <input id="twoStop" type="checkbox" className="checkbox-real" data-stops="2" />
-            <label htmlFor="twoStop" className="checkbox-fake">
-              2 пересадки
-              <div className="checkmark" />
-            </label>
-          </div>
-          <div className="filter-menu__item">
-            <input id="threeStop" type="checkbox" className="checkbox-real" data-stops="3" />
-            <label htmlFor="threeStop" className="checkbox-fake">
-              3 пересадки
-              <div className="checkmark" />
-            </label>
-          </div>
+          {items.map((item) => (
+            <div className="filter-menu__item">
+              <input id={item.id} type="checkbox" className="checkbox-real" data-stops={item.stops} />
+              <label htmlFor={item.id} className="checkbox-fake">
+                {item.name}
+                <div className="checkmark" />
+              </label>
+            </div>
+          ))}
         </div>
       </form>
     </div>

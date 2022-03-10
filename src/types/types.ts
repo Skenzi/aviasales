@@ -28,7 +28,6 @@ export interface PropsButton {
 }
 
 export interface PropsTicketsContainer {
-    tickets: Array<PropsTicket>,
     currentTickets: Array<PropsTicket>,
     setCurrentTickets: Function,
     setCurrSort: Function,

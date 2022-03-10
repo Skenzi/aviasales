@@ -30,7 +30,6 @@ function Main() {
       setError('Проблемы с сетью');
     });
   }, []);
-  console.log(statusTickets, 2);
   return (
     <main className="main">
       <FilteringMenu
@@ -40,7 +39,6 @@ function Main() {
       />
       {error ? <div>{error}</div> : (
         <TicketsContainer
-          tickets={tickets}
           statusTickets={statusTickets}
           setCurrSort={setCurrSort}
           setCurrentTickets={setCurrentTickets}

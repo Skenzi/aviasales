@@ -24,7 +24,7 @@ function ButtonAddTickets({
 }
 
 function TicketsContainer({
-  tickets = [], statusTickets, currentTickets = [], setCurrentTickets, setCurrSort,
+  statusTickets, currentTickets = [], setCurrentTickets, setCurrSort,
 }: PropsTicketsContainer) {
   const [countCurrTickets, setCountCurrTickets] = useState<number>(5);
   useEffect(() => {
