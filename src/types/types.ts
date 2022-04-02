@@ -15,14 +15,6 @@ export interface PropsTicket {
     segments: Array<TicketSegment>
 }
 
-export interface Props {
-    tickets?: Array<PropsTicket>,
-    setCountCurrTickets?: React.Dispatch<React.SetStateAction<number>>,
-    countCurrTickets?: number,
-    currentTickets?: Array<PropsTicket>,
-    setCurrentTickets?: React.Dispatch<React.SetStateAction<PropsTicket[]>>,
-}
-
 export interface PropsButton {
     setCountCurrTickets: React.Dispatch<React.SetStateAction<number>>,
     countCurrTickets: number,
